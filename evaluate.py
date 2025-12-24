@@ -8,26 +8,3 @@ def rmse(x, y):
 
 def mae(y_true, y_pred):
     return np.mean(np.abs(y_true - y_pred))
-
-if __name__ == "__main__":
-
-    # simulate data
-    df = simulate_causal_data()
-    features = [c for c in df.columns if c.startswith("X")]
-
-    tau_s = s_learner(df, features)
-    tau_t = t_learner(df, features)
-
-    # metrics
-    rmse_s = rmse(df["true_tau"], tau_s)
-    rmse_t = rmse(df["true_tau"], tau_t)
-
-    # obtain figure
-    plt.figure(figsize=(6,4))
-    plt.bar(["S-learner", "T-learner"], [rmse_s, rmse_t])
-    plt.ylabel("RMSE")
-    plt.title("Meta-Learner Comparison")
-    plt.tight_layout()
-    plt.savefig("figures/figure_1_meta_learner_rmse.png", dpi=300)
-    plt.close()
-
