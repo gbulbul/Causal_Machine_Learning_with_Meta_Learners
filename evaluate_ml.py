@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from simulate_data import simulate_causal_data_heterogeneous
+from simulate_data import simulate_causal_data
 from meta_learners import s_learner_rf, t_learner_rf
 from evaluate import rmse
 
@@ -11,7 +11,7 @@ from evaluate import rmse
 # -----------------------------
 # Simulate data
 # -----------------------------
-df = simulate_causal_data_heterogeneous(n=2000, seed=42)
+df = simulate_causal_data(n=2000, seed=42)
 features = [c for c in df.columns if c.startswith("X")]
 
 # -----------------------------
