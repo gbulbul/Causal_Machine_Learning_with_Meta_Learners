@@ -11,6 +11,9 @@ def rmse(x, y):
     return np.sqrt(np.mean((x - y) ** 2))
 
 
+def mae(y_true, y_pred):
+    return np.mean(np.abs(y_true - y_pred))
+
 if __name__ == "__main__":
 
     # Paths
@@ -53,3 +56,6 @@ if __name__ == "__main__":
     print("Evaluate 2 results (heterogeneous τ):")
     print("S-learner RMSE:", rmse(df["true_tau"], tau_s))
     print("T-learner RMSE:", rmse(df["true_tau"], tau_t))
+
+    print("S-learner MAE :", mae(df["true_tau"], tau_s))
+    print("T-learner MAE :", mae(df["true_tau"], tau_t))
