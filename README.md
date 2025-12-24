@@ -42,9 +42,7 @@ Results on metalearners comparison with ml models:
 
 <img width="425" height="281" alt="image" src="https://github.com/user-attachments/assets/785ae315-cf94-4456-91c4-52ef86f4eaa0" />
 
-Random Forest–based S‑learners demonstrate more stable CATE estimation than T‑learners under nonlinear and heterogeneous treatment effects, as evidenced by lower 
-
-median errors and reduced tail behavior.
+Random Forest–based S‑learners demonstrate more stable CATE estimation than T‑learners under nonlinear and heterogeneous treatment effects, as evidenced by lower median errors and reduced tail behavior.
 
 S-learner RF RMSE: 1.294
 
@@ -56,5 +54,6 @@ T-learner RF MAE : 0.994
 
 
 Overall comparison on RMSE and MAE:
+
 Across all evaluation metrics, including RMSE and mean absolute error, the parametric S‑learner consistently outperforms both its T‑learner counterpart and the Random Forest–based meta‑learners. While Random Forest models provide greater functional flexibility, their increased variance leads to inferior finite‑sample performance in this setting. These findings highlight that flexible machine‑learning base learners do not necessarily yield lower estimation error when the bias–variance trade‑off is unfavorable.
 
