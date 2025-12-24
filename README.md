@@ -7,7 +7,7 @@ We simulate observational data with heterogeneous treatment effects and
 estimate Conditional Average Treatment Effects (CATE) using popular
 meta-learning approaches, including the S-learner and T-learner. 
 We implement S‑ and T‑learner frameworks using parametric regression models as base learners. Also, flexible
-machine learning models (random forests) are used to model outcome functions.
+machine learning models (random forests) are used to model outcome functions. Then, the models are compared in terms of RMSE and MAE.
 
 The project is designed to illustrate how causal inference and modern machine
 learning methods can be combined to estimate and compare treatment effects
@@ -17,6 +17,7 @@ beyond average effects.
 - `simulate_data.py`: Simulates high-dimensional causal data with heterogeneous treatment effects.
 - `meta_learners.py`: Implements S-learner and T-learner approaches.
 - `evaluate_parametric.py`: Evaluates meta-learners by comparing estimated and true treatment effects.
+- `evaluate_ml.py`: Evaluates meta-learners by comparing estimated and true treatment effects.
 
 ## Methods
 - Potential outcomes framework
