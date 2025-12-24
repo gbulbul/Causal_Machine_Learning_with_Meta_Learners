@@ -5,14 +5,7 @@ import seaborn as sns
 
 from simulate_data import simulate_causal_data
 from meta_learners import s_learner, t_learner
-
-
-def rmse(x, y):
-    return np.sqrt(np.mean((x - y) ** 2))
-
-
-def mae(y_true, y_pred):
-    return np.mean(np.abs(y_true - y_pred))
+from evaluate import rmse, mae
 
 if __name__ == "__main__":
 
