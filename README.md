@@ -43,3 +43,7 @@ median errors and reduced tail behavior.
 
 S-learner RF RMSE: 1.2944342252623569
 T-learner RF RMSE: 1.5478131448350745
+
+Overall on RMSE:
+According to the RMSE criterion, the parametric S‑learner achieves the best performance among all evaluated models. While Random Forest–based meta‑learners offer greater flexibility, they incur higher variance, resulting in inferior RMSE in this finite‑sample setting.
+
