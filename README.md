@@ -24,8 +24,15 @@ beyond average effects.
 - Meta-learning for causal inference
 - Machine learning–based outcome modeling
 
-Results on parametric models
+Results on metalearners comparison with parametric models:
 
 <img width="425" height="281" alt="image" src="https://github.com/user-attachments/assets/5c0cf717-1a6c-4682-9289-88909a475cac" />
 
 Under nonlinear and heterogeneous treatment effects, the S‑learner achieves more stable individual treatment effect estimation, while the T‑learner suffers from increased variance and extreme errors.
+
+Results on metalearners comparison with ml models:
+
+<img width="425" height="281" alt="image" src="https://github.com/user-attachments/assets/785ae315-cf94-4456-91c4-52ef86f4eaa0" />
+
+Random Forest–based S‑learners demonstrate more stable CATE estimation than T‑learners under nonlinear and heterogeneous treatment effects, as evidenced by lower median errors and reduced tail behavior.
+
