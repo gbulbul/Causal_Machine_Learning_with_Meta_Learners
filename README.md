@@ -20,7 +20,6 @@ beyond average effects.
 - `evaluate_ml.py`: Evaluates meta-learners by comparing estimated and true treatment effects.
 
 ## Methods
-- Potential outcomes framework
 - Heterogeneous treatment effects
 - Meta-learning for causal inference
 - Machine learning–based outcome modeling
@@ -32,8 +31,11 @@ Results on metalearners comparison with parametric models:
 Under nonlinear and heterogeneous treatment effects, the S‑learner achieves more stable individual treatment effect estimation, while the T‑learner suffers from increased variance and extreme errors.
 
 S-learner RMSE: 1.023856192566453
+
 T-learner RMSE: 1.2740642218320983
+
 S-learner MAE : 0.7421352212301734
+
 T-learner MAE : 0.8123159954209237
 
 Results on metalearners comparison with ml models:
