@@ -30,9 +30,16 @@ Results on metalearners comparison with parametric models:
 
 Under nonlinear and heterogeneous treatment effects, the S‑learner achieves more stable individual treatment effect estimation, while the T‑learner suffers from increased variance and extreme errors.
 
+S-learner RMSE: 1.023856192566453
+T-learner RMSE: 1.2740642218320983
+
 Results on metalearners comparison with ml models:
 
 <img width="425" height="281" alt="image" src="https://github.com/user-attachments/assets/785ae315-cf94-4456-91c4-52ef86f4eaa0" />
 
-Random Forest–based S‑learners demonstrate more stable CATE estimation than T‑learners under nonlinear and heterogeneous treatment effects, as evidenced by lower median errors and reduced tail behavior.
+Random Forest–based S‑learners demonstrate more stable CATE estimation than T‑learners under nonlinear and heterogeneous treatment effects, as evidenced by lower 
 
+median errors and reduced tail behavior.
+
+S-learner RF RMSE: 1.2944342252623569
+T-learner RF RMSE: 1.5478131448350745
