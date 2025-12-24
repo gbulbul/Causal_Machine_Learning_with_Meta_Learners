@@ -5,7 +5,7 @@ import seaborn as sns
 
 from simulate_data import simulate_causal_data
 from meta_learners import s_learner_rf, t_learner_rf
-from evaluate import rmse
+from evaluate import rmse, mae
 
 
 # -----------------------------
@@ -50,3 +50,5 @@ plt.show()
 print("RF-based evaluation")
 print("S-learner RF RMSE:", rmse(df["true_tau"], tau_s_rf))
 print("T-learner RF RMSE:", rmse(df["true_tau"], tau_t_rf))
+print("S-learner RF MAE :", mae(df["true_tau"], tau_s_rf))
+print("T-learner RF MAE :", mae(df["true_tau"], tau_t_rf))
