@@ -5,7 +5,7 @@ import seaborn as sns
 
 from simulate_data import simulate_causal_data
 from meta_learners import s_learner_rf, t_learner_rf
-from evaluate import rmse, mae
+from model_selection import rmse, mae
 
 
 # -----------------------------
