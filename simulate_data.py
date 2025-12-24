@@ -1,46 +1,44 @@
 import numpy as np
 import pandas as pd
 
+
 def simulate_causal_data(
     n=1000,
-    p=10,
+    p=5,
     seed=42
 ):
-    """
-    Simulate high-dimensional causal data with
-    heterogeneous treatment effects.
-    """
     np.random.seed(seed)
 
+    # Covariates
     X = np.random.normal(0, 1, size=(n, p))
-    X = pd.DataFrame(X, columns=[f"X{i}" for i in range(p)])
+    df = pd.DataFrame(X, columns=[f"X{i+1}" for i in range(p)])
 
-    # Propensity score
-    logits = 0.5 * X["X0"] - 0.3 * X["X1"]
-    p_treat = 1 / (1 + np.exp(-logits))
-    T = np.random.binomial(1, p_treat)
+    # Treatment assignment
+    propensity = 1 / (1 + np.exp(-0.5 * df["X1"]))
+    T = np.random.binomial(1, propensity)
+    df["T"] = T
 
-    # True heterogeneous treatment effect
-    tau = 2 + X["X2"] - 0.5 * X["X3"]
-
-    # Baseline outcome
-    mu0 = (
-        1
-        + 0.5 * X["X0"]
-        - 0.2 * X["X1"]
-        + np.random.normal(0, 1, n)
+    # -------- TRUE HETEROGENEOUS TREATMENT EFFECT --------
+    tau = (
+        1.5
+        + 2.0 * np.sin(df["X1"])
+        - 1.0 * df["X2"]
+        + 1.5 * df["X3"] * df["X4"]   # interaction
     )
 
-    Y = mu0 + T * tau
-
-    df = X.copy()
-    df["T"] = T
-    df["Y"] = Y
     df["true_tau"] = tau
 
+    # Baseline outcome (nonlinear)
+    mu = (
+        2
+        + df["X1"] ** 2
+        + np.log(np.abs(df["X2"]) + 1)
+        - df["X3"]
+    )
+
+    # Observed outcome
+    noise = np.random.normal(0, 1, size=n)
+    Y = mu + T * tau + noise
+    df["Y"] = Y
+
     return df
-
-
-if __name__ == "__main__":
-    df = simulate_causal_data()
-    print(df.head())
