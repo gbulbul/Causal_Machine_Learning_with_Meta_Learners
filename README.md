@@ -1,59 +1,72 @@
 # Causal Machine Learning with Meta-Learners
 
-This project demonstrates causal effect estimation using machine learning
-meta-learners in a simulated high-dimensional setting.
+## Project Overview
 
-We simulate observational data with heterogeneous treatment effects and
-estimate Conditional Average Treatment Effects (CATE) using popular
-meta-learning approaches, including the S-learner and T-learner. 
-We implement S‑ and T‑learner frameworks using parametric regression models as base learners. Also, flexible
-machine learning models (random forests) are used to model outcome functions. Then, the models are compared in terms of RMSE and MAE.
+- Simulates observational data with heterogeneous potential outcomes
+- Focuses on estimating the **Average Treatment Effect (ATE)**
+- Applies causal machine learning **meta‑learning approaches**
 
-The project is designed to illustrate how causal inference and modern machine
-learning methods can be combined to estimate and compare treatment effects
-beyond average effects.
+## Methods
+- Observational data simulation with heterogeneous treatment effects
+- Causal inference via meta‑learning approaches
+  - **S‑learner** : A single outcome model including treatment as a covariate
+  - **T‑learner** : Separate outcome models for treated and control groups
+- Base learners are **parametric regression models**
+- Outcome modeling using:
+  - Parametric regression models
+  - Flexible machine learning models (Random Forests)
+    
+## Evaluation
+
+- Models are compared using:
+  - **RMSE** (Root Mean Squared Error)
+  - **MAE** (Mean Absolute Error)
+- Estimated effects are evaluated against the **true simulated ATE**
+
+## Objective
+
+- Estimate treatment effects from observational data
+- Demonstrate how causal inference methods can be implemented using meta‑learners
+- Compare different learning strategies for ATE estimation
+
+## Meta‑Learner Comparison (Parametric Models)
+
+- Under nonlinear and heterogeneous treatment effects:
+  - **S‑learner** provides more stable treatment effect estimation
+  - **T‑learner** exhibits higher variance and extreme estimation errors
+
+Under nonlinear and heterogeneous treatment effects, the **S‑learner** demonstrates more stable treatment effect estimation, while the **T‑learner** exhibits higher variance and more extreme errors.
+
+**Performance Metrics**
+- S‑learner RMSE: **1.023**
+- T‑learner RMSE: **1.274**
+- S‑learner MAE: **0.742**
+- T‑learner MAE: **0.812**
+
+<img width="425" height="281" alt="Parametric meta-learner comparison" src="https://github.com/user-attachments/assets/5c0cf717-1a6c-4682-9289-88909a475cac" />
+
+## Results: Meta‑Learner Comparison (Machine Learning Models)
+
+When Random Forests are used as base learners, the **S‑learner** again outperforms the **T‑learner**, achieving lower error metrics and more stable estimation under nonlinear and heterogeneous treatment effects.
+
+**Performance Metrics**
+- S‑learner (RF) RMSE: **1.294**
+- T‑learner (RF) RMSE: **1.548**
+- S‑learner (RF) MAE: **0.898**
+- T‑learner (RF) MAE: **0.994**
+
+<img width="425" height="281" alt="Random Forest meta-learner comparison" src="https://github.com/user-attachments/assets/785ae315-cf94-4456-91c4-52ef86f4eaa0" />
+
+## Overall Evaluation
+
+Across all evaluation metrics, including **RMSE** and **MAE**, the **parametric S‑learner** consistently outperforms both the parametric T‑learner and the Random Forest–based meta‑learners.  
+Although machine‑learning models offer greater functional flexibility, their increased variance leads to inferior finite‑sample performance in this setting. These results highlight that more flexible base learners do not necessarily yield lower estimation error when the **bias–variance trade‑off** is unfavorable.
+
+
 
 ## Files
 - `simulate_data.py`: Simulates high-dimensional causal data with heterogeneous treatment effects.
 - `meta_learners.py`: Implements S-learner and T-learner approaches.
 - `evaluate_parametric.py`: Evaluates meta-learners by comparing estimated and true treatment effects.
 - `evaluate_ml.py`: Evaluates meta-learners by comparing estimated and true treatment effects.
-
-## Methods
-- Heterogeneous treatment effects
-- Meta-learning for causal inference
-- Machine learning–based outcome modeling
-
-Results on metalearners comparison with parametric models:
-
-<img width="425" height="281" alt="image" src="https://github.com/user-attachments/assets/5c0cf717-1a6c-4682-9289-88909a475cac" />
-
-Under nonlinear and heterogeneous treatment effects, the S‑learner achieves more stable individual treatment effect estimation, while the T‑learner suffers from increased variance and extreme errors.
-
-S-learner RMSE: 1.023
-
-T-learner RMSE: 1.274
-
-S-learner MAE : 0.742
-
-T-learner MAE : 0.812
-
-Results on metalearners comparison with ml models:
-
-<img width="425" height="281" alt="image" src="https://github.com/user-attachments/assets/785ae315-cf94-4456-91c4-52ef86f4eaa0" />
-
-Random Forest–based S‑learners demonstrate more stable CATE estimation than T‑learners under nonlinear and heterogeneous treatment effects, as evidenced by lower median errors and reduced tail behavior.
-
-S-learner RF RMSE: 1.294
-
-T-learner RF RMSE: 1.548
-
-S-learner RF MAE : 0.898
-
-T-learner RF MAE : 0.994
-
-
-Overall comparison on RMSE and MAE:
-
-Across all evaluation metrics, including RMSE and mean absolute error, the parametric S‑learner consistently outperforms both its T‑learner counterpart and the Random Forest–based meta‑learners. While Random Forest models provide greater functional flexibility, their increased variance leads to inferior finite‑sample performance in this setting. These findings highlight that flexible machine‑learning base learners do not necessarily yield lower estimation error when the bias–variance trade‑off is unfavorable.
 
